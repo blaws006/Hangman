@@ -1,0 +1,9 @@
+#jumbotron {
+	background: url(../images/RMX-60-1204x643.png) no-repeat;
+	background-size: cover;
+}
+
+#mainArea {
+
+	overflow: hidden;
+}
