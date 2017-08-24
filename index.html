@@ -8,29 +8,42 @@
 	</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/darkly.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script type="text/javascript" src="assets/javascript/game.js"></script>
+	
 </head>
 <body>
 	<div class="container-fluid">
-		<div id="jumbotron" class="text-center jumbotron"><h1>Hip-Hop Hangman</h1></div>
+		<div id="jumbotron" class="text-center jumbotron"><h1>Hip-Hop Hangman</h1>
+		<br />
+		<h2>Press any Button to Start!</h2>
+		</div>
 	</div>
-	<div class="container">
+	<div class="container-fluid">
+	<div class="row">
 		<div class="col-12 col-md-4 col-lg-4">
 			<div class="panel panel-default">
-  			<div class="text-center panel-heading">Guesses</div>
-			<div class="text-center panel-body" id="guesses"></div>
-		</div>
-		</div>
-		<div class="col-12 col-md-4 col-lg-4">
-		<div class="panel panel-default">
-  			<div class="text-center panel-heading">Name That Hip-Hop Legend</div>
-			<div class="text-center panel-body" id="mainArea"></div>
-		</div>
+ 	 <div class="panel-heading text-center">Guesses Remaining</div>
+  	<div class="panel-body text-center">
+  		<span id="numberGuesses"></span>
+  		</div>
+	</div>
 		</div>
 		<div class="col-12 col-md-4 col-lg-4">
-			<div id="imgWin"></div>
-			<div id="imgLoss"></div>
+			<div class="panel panel-default">
+ 	 <div class="panel-heading text-center">Name That Hip-Hop Artist</div>
+  	<div id="word" class="panel-body text-center">
+  		
+  	</div>
+  	<div id="letters-guessed" class="panel-body text-center">Wins: &nbsp;<span id="win"></span></div>
+  	<div id="letters-guessed" class="panel-body text-center"></div>
+	</div>
+		</div>
+		<div class="col-12 col-md-4 col-lg-4 col-style">
+			<div class="text-center">
+				<h1>Guesses</h1>
+			</div>
 		</div>
 	</div>
+	</div>
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>

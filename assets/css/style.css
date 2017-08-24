@@ -7,3 +7,17 @@
 
 	overflow: hidden;
 }
+
+.col-style {
+	background: #464545;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#word li {
+	position: relative;
+	list-style: none;
+	display: inline-block;
+	
+		
+}
