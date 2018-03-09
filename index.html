@@ -1,49 +1,59 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>
 		Hangman
 	</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/darkly.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	
+
 </head>
+
 <body>
 	<div class="container-fluid">
-		<div id="jumbotron" class="text-center jumbotron"><h1>Hip-Hop Hangman</h1>
-		<br />
-		<h2>Press any Button to Start!</h2>
+		<div id="jumbotron" class="text-center jumbotron">
+			<h1>Hip-Hop Hangman</h1>
+			<br />
+			<h2>Press any Button to Start!</h2>
 		</div>
 	</div>
 	<div class="container-fluid">
-	<div class="row">
-		<div class="col-12 col-md-4 col-lg-4">
-			<div class="panel panel-default">
- 	 <div class="panel-heading text-center">Guesses Remaining</div>
-  	<div class="panel-body text-center">
-  		<span id="numberGuesses"></span>
-  		</div>
-	</div>
-		</div>
-		<div class="col-12 col-md-4 col-lg-4">
-			<div class="panel panel-default">
- 	 <div class="panel-heading text-center">Name That Hip-Hop Artist</div>
-  	<div id="word" class="panel-body text-center">
-  		
-  	</div>
-  	<div id="letters-guessed" class="panel-body text-center">Wins: &nbsp;<span id="win"></span></div>
-  	<div id="letters-guessed" class="panel-body text-center"></div>
-	</div>
-		</div>
-		<div class="col-12 col-md-4 col-lg-4 col-style">
-			<div class="text-center">
-				<h1>Guesses</h1>
+		<div class="row">
+			<div class="col-12 col-md-4 col-lg-4">
+				<div class="panel panel-default">
+					<div class="panel-heading text-center">Guesses Remaining</div>
+					<div class="panel-body text-center">
+						<p id="guesses-remaining"></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 col-lg-4">
+				<div class="panel panel-default">
+					<div class="panel-heading text-center">Name That Hip-Hop Artist</div>
+					<div id="word" class="panel-body text-center">
+
+					</div>
+					<div id="letters-guessed" class="panel-body text-center">Wins: &nbsp;
+						<span id="win"></span>
+					</div>
+					<div id="letters-guessed" class="panel-body text-center"></div>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 col-lg-4">
+				<div class="panel panel-default">
+						<div class="panel-heading text-center">Guessed Letters</div>
+						<div id="guessed-letters" class="panel-body text-center">
+
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	</div>
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
+
 </html>
