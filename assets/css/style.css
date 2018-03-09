@@ -3,6 +3,10 @@
 	background-size: cover;
 }
 
+#header {
+	margin-top: 20px;
+}
+
 #mainArea {
 
 	overflow: hidden;
