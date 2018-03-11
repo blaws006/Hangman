@@ -1,12 +1,15 @@
 //Global variables
 var artists = ['kendrick lamar', 'pimp c', 'tupac shakur', 'chance the rapper'];
-var wins, guessesLeft, roundWord, guessedLetter, wordSplit, wordBlank, validLetters, keyName, counter, list, letterGuessed, guessedLetter
+var wins, guessesLeft, roundWord, guessedLetter, wordSplit, wordBlank, validLetters, keyName, counter, list, letterGuessed, guessedLetter,
+	letters
 
 guessedLetter = [];
 
 //Intializes the game
 function gameStart() {
-
+	letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+		'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+	]
 	counter = 0;
 	//Starts at 10
 	guessesLeft = 15;
@@ -46,40 +49,31 @@ document.addEventListener('keydown', function (event) {
 
 		keyName = event.key;
 
-	
 
-		if (keyName == 'a' || keyName == 'b' || keyName == 'c' || keyName == 'd' || keyName == 'e' || keyName == 'f' || keyName == 'g' || keyName == 'h' || keyName == 'i' || keyName == 'j' || keyName == 'k' || keyName == 'l' || keyName == 'm' || keyName == 'n' || keyName == 'o' || keyName == 'p' || keyName == 'q' || keyName == 'r' || keyName == 's' || keyName == 't' || keyName == 'u' || keyName == 'v' || keyName == 'w' || keyName == 'x' || keyName == 'y' || keyName == 'z') {
 
+
+		for (var i = 0; i < letters.length; i++) {
+			if (keyName === letters[i]) {
 				counter++;
+				guessesLeft -= 1;
+				document.getElementById('guesses-remaining').textContent = guessesLeft;
+				letters.splice(i, 1);
+				guessedLetter.push(keyName);
+				document.getElementById('guessed-letters').textContent = guessedLetter;
+				console.log(letters);
+			} 
+		}
 
-			for (var i = 0; i < validLetters.length; i++) {
-				if (validLetters[i] === keyName) {
-					console.log("true");
+		/* if (keyName == 'a' || keyName == 'b' || keyName == 'c' || keyName == 'd' || keyName == 'e' || keyName == 'f' || keyName == 'g' || keyName == 'h' || keyName == 'i' || keyName == 'j' || keyName == 'k' || keyName == 'l' || keyName == 'm' || keyName == 'n' || keyName == 'o' || keyName == 'p' || keyName == 'q' || keyName == 'r' || keyName == 's' || keyName == 't' || keyName == 'u' || keyName == 'v' || keyName == 'w' || keyName == 'x' || keyName == 'y' || keyName == 'z') {
 
-				} else {
-					console.log("false");
 
-				}
-			};
-
-			guessedLetter.push(keyName);
-			letterGuessing();
 			// guessedLetter.splice(counter - 1, 0, keyName);
-			guessesLeft -= 1;
+			
 			guessedLetter.join();
 			document.getElementById('guessed-letters').textContent = guessedLetter;
-			document.getElementById('guesses-remaining').textContent = guessesLeft;
+			
 			console.log(counter)
 
-		}
+		} */
 	}
 });
-
-
-function letterGuessing() {
-	for (var i = 0; i < guessedLetter.length; i++) {
-		if (guessedLetter[i] != keyName) {
-			console.log(guessedLetter[i]);
-		}
-	}
-}
