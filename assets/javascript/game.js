@@ -1,14 +1,25 @@
 //Global variables
+var artists = ['kendrick lamar', 'pimp c', 'tupac shakur', 'chance the rapper'];
+var wins, guessesLeft, roundWord, guessedLetter, wordSplit, wordBlank, validLetters, keyName, counter, list, letterGuessed, guessedLetter
 
-var artists = ['kendrick lamar', 'pimp c', 'tupac shakur'];
-var wins, guessesLeft, roundWord, guessedLetter, wordSplit, wordBlank, validLetters
+guessedLetter = [];
 
-
+//Intializes the game
 function gameStart() {
-	guessesLeft = document.getElementById('guesses-remaining').textContent = 10;
-	wins = document.getElementById('win').textContent = 0;
-	roundWord = artists[Math.floor(Math.random() * 3)];
+
+	counter = 0;
+	//Starts at 10
+	guessesLeft = 15;
+	document.getElementById('guesses-remaining').textContent = guessesLeft;
+
+	//Starts at 0
+	wins = 0;
+	document.getElementById('win').textContent = wins;
+	//Picks the word for the round
+	roundWord = artists[Math.floor(Math.random() * 4)];
+	//Splits the word by letter and shoots to global array
 	validLetters = roundWord.split('');
+	//Splits the word by letter and replaces letter with character
 	wordSplit = roundWord.split('');
 	for (var i = 0; i < wordSplit.length; i++) {
 		if (typeof wordSplit[i] === 'string' && wordSplit[i] !== ' ') {
@@ -18,20 +29,57 @@ function gameStart() {
 		}
 	};
 
+	//Displays blanks
 	wordBlank = document.getElementById('word').innerHTML = wordSplit.join(' ').toString();
 
 	console.log(wordSplit);
 	console.log(roundWord);
 	console.log(wordBlank);
-	console.log(validLetters)
+	console.log(validLetters);
 }
 
 gameStart();
 
 
 document.addEventListener('keydown', function (event) {
-	var keyName = event.key;
-	if (keyName == 'a' || keyName == 'b' || keyName == 'c' || keyName == 'd' || keyName == 'e' || keyName == 'f' || keyName == 'g' || keyName == 'h' || keyName == 'i' || keyName == 'j' || keyName == 'k' || keyName == 'l' || keyName == 'm' || keyName == 'n' || keyName == 'o' || keyName == 'p' || keyName == 'q' || keyName == 'r' || keyName == 's' || keyName == 't' || keyName == 'u' || keyName == 'v' || keyName == 'w' || keyName == 'x' || keyName == 'y' || keyName == 'z') {
-	console.log(keyName);
+	if (guessesLeft > 0) {
+
+		keyName = event.key;
+
+	
+
+		if (keyName == 'a' || keyName == 'b' || keyName == 'c' || keyName == 'd' || keyName == 'e' || keyName == 'f' || keyName == 'g' || keyName == 'h' || keyName == 'i' || keyName == 'j' || keyName == 'k' || keyName == 'l' || keyName == 'm' || keyName == 'n' || keyName == 'o' || keyName == 'p' || keyName == 'q' || keyName == 'r' || keyName == 's' || keyName == 't' || keyName == 'u' || keyName == 'v' || keyName == 'w' || keyName == 'x' || keyName == 'y' || keyName == 'z') {
+
+				counter++;
+
+			for (var i = 0; i < validLetters.length; i++) {
+				if (validLetters[i] === keyName) {
+					console.log("true");
+
+				} else {
+					console.log("false");
+
+				}
+			};
+
+			guessedLetter.push(keyName);
+			letterGuessing();
+			// guessedLetter.splice(counter - 1, 0, keyName);
+			guessesLeft -= 1;
+			guessedLetter.join();
+			document.getElementById('guessed-letters').textContent = guessedLetter;
+			document.getElementById('guesses-remaining').textContent = guessesLeft;
+			console.log(counter)
+
+		}
 	}
-})
+});
+
+
+function letterGuessing() {
+	for (var i = 0; i < guessedLetter.length; i++) {
+		if (guessedLetter[i] != keyName) {
+			console.log(guessedLetter[i]);
+		}
+	}
+}
