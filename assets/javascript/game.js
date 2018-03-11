@@ -33,7 +33,7 @@ function gameStart() {
 	};
 
 	//Displays blanks
-	wordBlank = document.getElementById('word').innerHTML = wordSplit.join(' ').toString();
+	wordBlank = document.getElementById('word').innerHTML = wordSplit.join(' ');
 
 	console.log(wordSplit);
 	console.log(roundWord);
@@ -48,32 +48,34 @@ document.addEventListener('keydown', function (event) {
 	if (guessesLeft > 0) {
 
 		keyName = event.key;
-
-
-
-
+		// Loop through letters and if keyName equals the remaining letters.
 		for (var i = 0; i < letters.length; i++) {
 			if (keyName === letters[i]) {
 				counter++;
+				// Count down the amount of guesses and display the guesses (will not work if already guessed)
 				guessesLeft -= 1;
 				document.getElementById('guesses-remaining').textContent = guessesLeft;
+				// Remove the guessed letter from the letter array and displayed (will not work if already guessed)
 				letters.splice(i, 1);
 				guessedLetter.push(keyName);
 				document.getElementById('guessed-letters').textContent = guessedLetter;
 				console.log(letters);
-			} 
+				rightOrWrong();
+			}
 		}
-
-		/* if (keyName == 'a' || keyName == 'b' || keyName == 'c' || keyName == 'd' || keyName == 'e' || keyName == 'f' || keyName == 'g' || keyName == 'h' || keyName == 'i' || keyName == 'j' || keyName == 'k' || keyName == 'l' || keyName == 'm' || keyName == 'n' || keyName == 'o' || keyName == 'p' || keyName == 'q' || keyName == 'r' || keyName == 's' || keyName == 't' || keyName == 'u' || keyName == 'v' || keyName == 'w' || keyName == 'x' || keyName == 'y' || keyName == 'z') {
-
-
-			// guessedLetter.splice(counter - 1, 0, keyName);
-			
-			guessedLetter.join();
-			document.getElementById('guessed-letters').textContent = guessedLetter;
-			
-			console.log(counter)
-
-		} */
 	}
+
 });
+
+function rightOrWrong() {
+	for (var i = 0; i < validLetters.length; i++) {
+		if (keyName === validLetters[i]) {
+		wordSplit.splice(i, validLetters[i].length, validLetters[i]);	
+		console.log(validLetters[i].length)
+		console.log(validLetters[i]);
+		console.log(i);
+		console.log(wordSplit);
+		wordBlank = document.getElementById('word').innerHTML = wordSplit.join(' ')
+		}
+	};
+};
