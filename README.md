@@ -15,3 +15,4 @@
 - [Bootstrap (v3.37)] (https://getbootstrap.com/docs/3.3/)
 - JavaScript (ES5)
 
+### [Play the game here and enjoy!] (https://blaws006.github.io/Hangman/)
