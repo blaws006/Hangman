@@ -1,6 +1,6 @@
 //Global variables
 var artists = ['kendrick lamar', 'tory lanez', 'meek mill', 'chance the rapper', 'vince staples', 'mick jenkins', 'logic', 'drake', 'earthgang', 'towkio'];
-var wins, losses, guessesLeft, roundWord, guessedLetter, wordSplit, wordBlank, validLetters, keyName, counter, list, letterGuessed, guessedLetter,
+var wins, losses, guessesLeft, roundWord, guessedLetter, wordSplit, wordBlank, validLetters, keyName, list, letterGuessed, guessedLetter,
 	letters
 
 wins = 0;
@@ -11,7 +11,7 @@ function gameStart() {
 	letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
 		'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
 	]
-	counter = 0;
+	
 	//Starts at 15
 	guessesLeft = 15;
 	document.getElementById('guesses-remaining').textContent = guessesLeft;
@@ -32,10 +32,12 @@ function gameStart() {
 			wordSplit[i] = '&nbsp;';
 		}
 		//Empties guessedLetter array and displays
-		guessedLetter = [];
-		document.getElementById('guessed-letters').textContent = guessedLetter;
+		
 	};
-
+	
+	guessedLetter = [];
+	document.getElementById('guessed-letters').textContent = guessedLetter;
+	
 	//Displays blanks
 	wordBlank = document.getElementById('word').innerHTML = wordSplit.join(' ');
 }
@@ -50,7 +52,6 @@ document.addEventListener('keydown', function (event) {
 		// Loop through letters and if keyName equals the remaining letters.
 		for (var i = 0; i < letters.length; i++) {
 			if (keyName === letters[i]) {
-				counter++;
 				// Count down the amount of guesses and display the guesses (will not work if already guessed)
 				guessesLeft -= 1;
 				document.getElementById('guesses-remaining').textContent = guessesLeft;
