@@ -1,6 +1,6 @@
 # Hip-Hop Hangman
 
-![Hip-Hop Hangman] (https://media.giphy.com/media/As1k5UVgm87lawBc1E/giphy.gif)
+![Hip-Hop Hangman](https://media.giphy.com/media/As1k5UVgm87lawBc1E/giphy.gif)
 
 ## Rules
 - You get 15 chances to guess the hip-hip artist/group
