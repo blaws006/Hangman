@@ -1,5 +1,5 @@
 //Global variables
-var artists = ['kendrick lamar', 'pimp c', 'tupac shakur', 'chance the rapper'];
+var artists = ['kendrick lamar', 'tory lanez', 'meek mill', 'chance the rapper', 'vince staples', 'mick jenkins', 'logic', 'drake', 'earthgang', 'towkio'];
 var wins, guessesLeft, roundWord, guessedLetter, wordSplit, wordBlank, validLetters, keyName, counter, list, letterGuessed, guessedLetter,
 	letters
 
@@ -19,9 +19,10 @@ function gameStart() {
 	wins = 0;
 	document.getElementById('win').textContent = wins;
 	//Picks the word for the round
-	roundWord = artists[Math.floor(Math.random() * 4)];
+	roundWord = artists[Math.floor(Math.random() * 10)];
 	//Splits the word by letter and shoots to global array
 	validLetters = roundWord.split('');
+
 	//Splits the word by letter and replaces letter with character
 	wordSplit = roundWord.split('');
 	for (var i = 0; i < wordSplit.length; i++) {
@@ -61,6 +62,7 @@ document.addEventListener('keydown', function (event) {
 				document.getElementById('guessed-letters').textContent = guessedLetter;
 				console.log(letters);
 				rightOrWrong();
+				winOrLose();
 			}
 		}
 	}
@@ -69,13 +71,33 @@ document.addEventListener('keydown', function (event) {
 
 function rightOrWrong() {
 	for (var i = 0; i < validLetters.length; i++) {
+		//Evaluates whether the Key equals at least one of the validLetters
 		if (keyName === validLetters[i]) {
+		// If so, replace the underscore in the wordSplit array with the letter at the same index as in the validLetters array 	
 		wordSplit.splice(i, validLetters[i].length, validLetters[i]);	
 		console.log(validLetters[i].length)
 		console.log(validLetters[i]);
 		console.log(i);
-		console.log(wordSplit);
+		//And display the new wordBlank output in the #word div
 		wordBlank = document.getElementById('word').innerHTML = wordSplit.join(' ')
 		}
 	};
 };
+
+
+function winOrLose() {
+	//Evaluates whether not we can find an underscore value in the wordSplit array
+	if(wordSplit.indexOf('_') === -1){
+		//If not you win
+		alert("Win");
+	} else if (wordSplit.indexOf('_') > -1 && guessesLeft === 0) {
+		// If so and you've run out of turns, you lose
+		alert("Lose");
+	} else {
+		// Otherwise, keep playing!
+		console.log(wordSplit.indexOf('_'));
+		console.log(validLetters);
+		console.log(guessesLeft + " Guesses left...Keep Playing!");
+	}
+
+}
